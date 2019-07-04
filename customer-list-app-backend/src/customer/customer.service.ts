@@ -3,12 +3,16 @@ import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Customer } from './interfaces/customer.interface';
 import { CreateCustomerDTO } from './dto/create-customer.dto';
+import { Logger } from '@nestjs/common';
+
 
 
 @Injectable()
 export class CustomerService {
-    constructor(@InjectModel('Customer') private readonly customerModel: Model<Customer>) { }
+    constructor(@InjectModel('Customer') private readonly customerModel: Model<Customer>)
+                 { }
 
+                private readonly logger = new Logger()
     // fetch all customers
     async getAllCustomer(): Promise<Customer[]> {
         const customers = await this.customerModel.find().exec();
@@ -24,6 +28,7 @@ export class CustomerService {
     // post a single customer
     async addCustomer(createCustomerDTO: CreateCustomerDTO): Promise<Customer> {
         const newCustomer = await this.customerModel(createCustomerDTO);
+        this.logger.log('Added customer to database');
         return newCustomer.save();
     }
 
