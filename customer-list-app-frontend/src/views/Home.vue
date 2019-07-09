@@ -2,8 +2,7 @@
     <div class="container-fluid">
 
       <div class="text-center">
-        <h1>Nest Customer List App Tutorial</h1>
-       <p> Built with Nest.js, Vue.js and MongoDB</p>
+        <h1>Customer List</h1>
 
        <div v-if="customers.length === 0">
             <h2> No customer found at the moment </h2>
@@ -33,12 +32,12 @@
                   <td>{{ customer.address }}</td>
                   <td>{{ customer.description }}</td>
                   <td>
-                    <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group" style="margin-bottom: 20px;">
-                                  <router-link :to="{name: 'Edit', params: {id: customer._id}}" class="btn btn-sm btn-outline-secondary">Edit Customer </router-link>
-                                  <button class="btn btn-sm btn-outline-secondary" v-on:click="deleteCustomer(customer._id)">Delete Customer</button>
-                                </div>
-                              </div>
+                    <div class="justify-content-between align-items-center">
+                      <div class="btn-group" style="margin-bottom: 20px;">
+                        <router-link :to="{name: 'Edit', params: {id: customer._id}}" class="btn btn-sm btn-outline-secondary">Edit Customer </router-link>
+                        <button class="btn btn-sm btn-outline-secondary" v-on:click="deleteCustomer(customer._id)">Delete Customer</button>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -72,7 +71,8 @@ export default {
         .delete(`${server.baseURL}/customer/delete?customerID=${id}`)
         .then(data => {
           console.log(data);
-          window.location.reload();
+          // this.customers = data.data;
+          this.$forceUpdate();
         });
     }
   }
