@@ -2,7 +2,7 @@
   "name": "customer-list-app",
   "version": "0.0.0",
   "description": "description",
-  "author": "Olususi oluyemi",
+  "author": "Afkir01",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
