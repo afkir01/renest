@@ -34,7 +34,8 @@
                   <td>
                     <div class="justify-content-between align-items-center">
                       <div class="btn-group" style="margin-bottom: 20px;">
-                        <router-link :to="{name: 'Edit', params: {id: customer._id}}" class="btn btn-sm btn-outline-secondary">Edit Customer </router-link>
+                        <!-- <router-link :to="{name: 'Edit', params: {id: customer._id}}" class="btn btn-sm btn-outline-secondary">Edit Customer </router-link> -->
+                        <button class="btn btn-sm btn-outline-secondary" @click="editCustomer()">Edit Customer</button>
                         <button class="btn btn-sm btn-outline-secondary" v-on:click="deleteCustomer(customer._id)">Delete Customer</button>
                       </div>
                     </div>

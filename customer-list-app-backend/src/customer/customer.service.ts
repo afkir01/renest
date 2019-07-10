@@ -10,9 +10,10 @@ import { Logger } from '@nestjs/common';
 @Injectable()
 export class CustomerService {
     constructor(@InjectModel('Customer') private readonly customerModel: Model<Customer>)
-                 { }
+    { }
 
-                private readonly logger = new Logger()
+    private readonly logger = new Logger()
+    
     // fetch all customers
     async getAllCustomer(): Promise<Customer[]> {
         const customers = await this.customerModel.find().exec();
