@@ -25,7 +25,7 @@
     "axios": "^0.18.1",
     "braces": "^3.0.2",
     "cors": "^2.8.5",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.5.3",
     "js-yaml": "^3.13.1",
     "mem": "^5.1.1",
     "mongoose": "^5.4.9",
